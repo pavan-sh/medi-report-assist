@@ -120,6 +120,14 @@ export default function MedicalForm() {
                     <RadioGroupItem value="female" id="female" />
                     <Label htmlFor="female">Female</Label>
                   </div>
+
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem
+                      value="Prefer Not to Answer"
+                      id="preferNot"
+                    />
+                    <Label htmlFor="preferNot">Prefer Not to Answer</Label>
+                  </div>
                 </RadioGroup>
               </div>
 
@@ -207,7 +215,7 @@ export default function MedicalForm() {
                 className="w-full cursor-pointer"
                 variant="outline"
               >
-                Submit & Generate Report Analysis
+                Submit & Display Report Analysis
               </Button>
             </form>
           ) : (

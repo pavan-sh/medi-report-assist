@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Error() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-blue-50 to-white flex flex-col items-center justify-center text-gray-800 p-4">
+    <div className="min-h-screen w-full flex flex-col items-center justify-center ">
       <AlertCircle className="w-24 h-24 text-red-500" />
 
       <div className="text-3xl font-bold mb-4 text-center pt-4">Oops!</div>
@@ -16,6 +16,7 @@ export default function Error() {
         <Link
           href="https://developer.chrome.com/docs/ai/built-in#get_an_early_preview"
           className="underline"
+          target="_blank"
         >
           Early Preview Program.
         </Link>

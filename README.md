@@ -1,6 +1,8 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## How To Run MediReport Assist App
+Access the application with URL- https://medi-report-assist.vercel.app/
+
+## How To Run MediReport Assist App locally-
 Make sure you are on Node version 20.18.1 or greater.
 
 Git clone - https://github.com/pavan-sh/medi-report-assist.git

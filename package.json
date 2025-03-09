@@ -1,6 +1,7 @@
 {
   "name": "medi-report-assist",
   "version": "0.1.0",
+  "description":"MediReport Assist - A local AI-powered tool that analyzes blood reports, detects deficiencies, and provides personalized health insights with improvement suggestions.",
   "private": true,
   "scripts": {
     "dev": "next dev",

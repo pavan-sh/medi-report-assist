@@ -2,6 +2,70 @@
 
 import { AlertCircle, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+
+function ChromeHelp() {
+  const [ua, setUa] = useState<string>("");
+
+  useEffect(() => {
+    if (typeof navigator !== "undefined") {
+      setUa(navigator.userAgent || "");
+    }
+  }, []);
+
+  const isChrome = useMemo(() => {
+    // Basic heuristic: Chrome but not Edge.
+    return /Chrome\//.test(ua) && !/Edg\//.test(ua);
+  }, [ua]);
+
+  if (!isChrome) {
+    return (
+      <div className="mt-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
+        To use MediReport Assist, open this site in <b>Google Chrome</b>.
+      </div>
+    );
+  }
+
+  return (
+    <>
+      <div className="mt-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
+        You’re in <b>Chrome</b>, but local AI isn’t enabled yet. Here’s how to
+        turn it on.
+      </div>
+
+      <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
+        <div className="font-medium text-slate-900 dark:text-slate-100">
+          Enable Chrome built-in AI
+        </div>
+        <ol className="mt-2 list-decimal space-y-1 pl-5">
+          <li>
+            Join the{" "}
+            <Link
+              href="https://developer.chrome.com/docs/ai/built-in#get_an_early_preview"
+              className="underline underline-offset-2"
+              target="_blank"
+            >
+              Early Preview Program
+            </Link>
+            .
+          </li>
+          <li>
+            Update Chrome to the latest version (chrome://settings/help).
+          </li>
+          <li>
+            Enable the built-in AI / Prompt API feature flags if instructed by
+            the preview program.
+          </li>
+          <li>Restart Chrome and refresh this page.</li>
+        </ol>
+      </div>
+
+      <div className="mt-4 text-xs text-slate-500 dark:text-slate-500">
+        Tip: After enabling, refresh this page.
+      </div>
+    </>
+  );
+}
 
 export default function Error() {
   return (
@@ -30,31 +94,7 @@ export default function Error() {
           <Sparkles className="h-5 w-5 text-slate-400 dark:text-slate-500" />
         </div>
 
-        <div className="mt-4 text-sm leading-6 text-slate-700 dark:text-slate-300">
-          To use MediReport Assist, open this site in <b>Google Chrome</b> and
-          enable the early preview for built-in AI.
-        </div>
-
-        <div className="mt-4 rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-700 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-300">
-          <div className="font-medium text-slate-900 dark:text-slate-100">
-            Get access
-          </div>
-          <div className="mt-1">
-            Join the{" "}
-            <Link
-              href="https://developer.chrome.com/docs/ai/built-in#get_an_early_preview"
-              className="underline underline-offset-2"
-              target="_blank"
-            >
-              Early Preview Program
-            </Link>
-            .
-          </div>
-        </div>
-
-        <div className="mt-4 text-xs text-slate-500 dark:text-slate-500">
-          Tip: Once enabled, refresh this page.
-        </div>
+        <ChromeHelp />
       </div>
     </div>
   );

@@ -27,26 +27,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <header className="header flex flex-row justify-center align-middle pt-3">
-          <Image
-            src="/logo.svg"
-            alt="logo"
-            width={120}
-            height={45}
-            className="rounded-md"
-          />
-          <div className="flex flex-col justify-start pl-2 self-center">
-            <div className="text-4xl">MediReport Assist</div>
-            <div>
-              Streamlining healthcare documentation with intelligent report
-              generation, Powered by Google Chrome Built-in AI.
+    <html lang="en" className="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <header className="border-b border-slate-200/70 bg-white/70 backdrop-blur dark:border-slate-800 dark:bg-slate-950/40">
+          <div className="mx-auto flex w-full max-w-6xl items-center gap-3 px-4 py-4">
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              width={44}
+              height={44}
+              className="rounded-md"
+            />
+            <div className="flex flex-col">
+              <div className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                MediReport Assist
+              </div>
+              <div className="text-sm text-slate-600 dark:text-slate-400">
+                Local, on-device blood report summary using Chrome built-in AI.
+              </div>
             </div>
           </div>
         </header>
+
         {children}
         <Toaster />
       </body>

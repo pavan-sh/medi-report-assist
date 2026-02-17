@@ -4,13 +4,13 @@ import BloodReport from "@/app/blood-report/_bloodReport";
 
 export default function Home() {
   return (
-    <div className="font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div className="min-h-[calc(100vh-100px)] font-[family-name:var(--font-geist-sans)]">
+      <main className="mx-auto w-full max-w-6xl px-4 py-6">
         <BloodReport />
       </main>
 
-      <footer className="flex items-center justify-end fixed bottom-0 inset-x-0 mx-auto">
-        MediReport Assist - {new Date().getFullYear()}
+      <footer className="mx-auto w-full max-w-6xl px-4 pb-6 text-sm text-slate-500 dark:text-slate-400">
+        MediReport Assist © {new Date().getFullYear()}
       </footer>
     </div>
   );

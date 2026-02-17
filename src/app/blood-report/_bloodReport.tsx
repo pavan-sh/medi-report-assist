@@ -95,8 +95,10 @@ export default function MedicalForm() {
   }
 
   return (
-    <>
-      <Card className="w-full max-w-md 2x1:w-1/2 mx-auto clamp ">
+    <div className="grid grid-cols-1 gap-6 lg:grid-cols-[420px_1fr]">
+      <div className="lg:sticky lg:top-6 lg:self-start">
+        <Card className="w-full">
+
         <CardHeader>
           <CardTitle data-testid="page-header">
             {isSubmitted === false && "Medical Information Form"}
@@ -223,6 +225,26 @@ export default function MedicalForm() {
           )}
         </CardContent>
       </Card>
-    </>
+      </div>
+
+      <div className="min-h-[420px]">
+        <Card className="w-full">
+          <CardHeader>
+            <CardTitle data-testid="page-header">
+              {isSubmitted === false && "Report Analysis"}
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            {isSubmitted === false && responseText === "" ? (
+              <div className="text-sm text-slate-600 dark:text-slate-400">
+                Fill the form on the left and submit to generate a local analysis.
+              </div>
+            ) : (
+              <Output responseText={responseText} loaded={loaded} reset={reset} />
+            )}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
   );
 }
